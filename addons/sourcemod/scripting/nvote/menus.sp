@@ -68,9 +68,9 @@ public int VoteMenuHandler(Menu menu, MenuAction action, int client, int selecti
 		{
 			if (IsValidClient(client))
 			{
-				if (!NativeVotes_IsNewVoteAllowed())
+				if (!L4D2NativeVote_IsAllowNewVote())
 				{
-					PrintToChat(client, "\x05%s \x04%d秒后才能开始投票", NEKOTAG, NativeVotes_CheckVoteDelay());
+					PrintToChat(client, "\x05%s \x04暂时不能开启新的投票", NEKOTAG);
 					return 0;
 				}
 

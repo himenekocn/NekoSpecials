@@ -23,9 +23,9 @@ public Action ChatListener(int client, const char[] command, int args)
 
 	if (BoolWaitForVoteItems[client])
 	{
-		if (!NativeVotes_IsNewVoteAllowed())
+		if (!L4D2NativeVote_IsAllowNewVote())
 		{
-			PrintToChat(client, "\x05%s \x04%d秒后才能开始投票", NEKOTAG, NativeVotes_CheckVoteDelay());
+			PrintToChat(client, "\x05%s \x04暂时不能开启新的投票", NEKOTAG);
 			cleanplayerwait(client);
 			return Plugin_Continue;
 		}

@@ -90,17 +90,15 @@ public Action RefreshHUD(Handle timer)
 		if (NCvar[CKillHud_AllKill].BoolValue)
 		{
 			char btnrightline[1024];
+			Format(btnrightline, sizeof(btnrightline), "➣章节: %d 特感 %d 丧尸", Neko_GlobalState.Kill_AllInfected, Neko_GlobalState.Kill_AllZombie);
 			if (NCvar[CKillHud_ShowTankWitch].BoolValue)
-				Format(btnrightline, sizeof(btnrightline), "➣章节: %d 特感 %d 丧尸 %d 女巫 %d 坦克", Neko_GlobalState.Kill_AllInfected, Neko_GlobalState.Kill_AllZombie, Neko_GlobalState.Kill_AllWitch, Neko_GlobalState.Kill_AllTank);
-			else
-				Format(btnrightline, sizeof(btnrightline), "➣章节: %d 特感 %d 丧尸", Neko_GlobalState.Kill_AllInfected, Neko_GlobalState.Kill_AllInfected);
+				Format(btnrightline, sizeof(btnrightline), "%s %d 女巫 %d 坦克", btnrightline, Neko_GlobalState.Kill_AllWitch, Neko_GlobalState.Kill_AllTank);
 
 			if (NCvar[CKillHud_AllKillStyle2].BoolValue)
 			{
+				Format(btnrightline, sizeof(btnrightline), "%s\n➣全局: %d 特感 %d 丧尸", btnrightline, Neko_GlobalState.Kill_AllInfectedGO, Neko_GlobalState.Kill_AllZombieGO);
 				if (NCvar[CKillHud_ShowTankWitch].BoolValue)
-					Format(btnrightline, sizeof(btnrightline), "%s\n➣全局: %d 特感 %d 丧尸 %d 女巫 %d 坦克", btnrightline, Neko_GlobalState.Kill_AllInfectedGO, Neko_GlobalState.Kill_AllZombieGO, Neko_GlobalState.Kill_AllWitchGO, Neko_GlobalState.Kill_AllTankGO);
-				else
-					Format(btnrightline, sizeof(btnrightline), "%s\n➣全局: %d 特感 %d 丧尸", btnrightline, Neko_GlobalState.Kill_AllInfectedGO, Neko_GlobalState.Kill_AllZombieGO);
+					Format(btnrightline, sizeof(btnrightline), "%s %d 女巫 %d 坦克", btnrightline, Neko_GlobalState.Kill_AllWitchGO, Neko_GlobalState.Kill_AllTankGO);
 			}
 
 			Format(btnrightline, sizeof(btnrightline), "%s\n➣计时: %s", btnrightline, GetNowTime_Format());
@@ -283,15 +281,15 @@ public Action RefreshHUD(Handle timer)
 			PrintToChatAll("\x05[\x03MVP\x05]: \x01%s \x04 造成友伤 \x03%d \x01| %s \x04 承受伤害 \x03%d", PlayerName, PlayerFriendlyFire.Get(0), PlayerNames, PlayerFriendlyHurt.Get(0));
 			if (!NCvar[CKillHud_ShowTankWitch].BoolValue)
 			{
+				PrintToChatAll("\x05[\x03章节\x05]: \x03%d \x05特感 \x03%d \x05僵尸", Neko_GlobalState.Kill_AllInfected, Neko_GlobalState.Kill_AllZombie);
 				if (NCvar[CKillHud_AllKillStyle2].BoolValue)
 					PrintToChatAll("\x05[\x03全局\x05]: \x03%d \x05特感 \x03%d \x05僵尸", Neko_GlobalState.Kill_AllInfectedGO, Neko_GlobalState.Kill_AllZombieGO);
-				PrintToChatAll("\x05[\x03章节\x05]: \x03%d \x05特感 \x03%d \x05僵尸", Neko_GlobalState.Kill_AllInfected, Neko_GlobalState.Kill_AllZombie);
 			}
 			else
 			{
+				PrintToChatAll("\x05[\x03章节\x05]: \x03%d \x05特感 \x03%d \x05僵尸 \x03%d \x05女巫 \x03%d \x05坦克", Neko_GlobalState.Kill_AllInfected, Neko_GlobalState.Kill_AllZombie, Neko_GlobalState.Kill_AllWitch, Neko_GlobalState.Kill_AllTank);
 				if (NCvar[CKillHud_AllKillStyle2].BoolValue)
 					PrintToChatAll("\x05[\x03全局\x05]: \x03%d \x05特感 \x03%d \x05僵尸 \x03%d \x05女巫 \x03%d \x05坦克", Neko_GlobalState.Kill_AllInfectedGO, Neko_GlobalState.Kill_AllZombieGO, Neko_GlobalState.Kill_AllWitchGO, Neko_GlobalState.Kill_AllTankGO);
-				PrintToChatAll("\x05[\x03章节\x05]: \x03%d \x05特感 \x03%d \x05僵尸 \x03%d \x05女巫 \x03%d \x05坦克", Neko_GlobalState.Kill_AllInfected, Neko_GlobalState.Kill_AllZombie, Neko_GlobalState.Kill_AllWitch, Neko_GlobalState.Kill_AllTank);
 			}
 
 			delete PlayerKillNum;

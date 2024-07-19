@@ -7,7 +7,7 @@
 #include <binhooks>
 #include <neko/nekotools>
 #include <neko/nekonative>
-#include <nativevotes>
+#include <l4d2_nativevote>
 #include "nvote/globals.sp"
 
 #define PLUGIN_CONFIG "Neko_VoteMenu"

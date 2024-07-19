@@ -53,7 +53,7 @@ linux系统输入<br>
 # 插件安装
 1.安装Sourcemod插件平台到1.11+/1.12+最新版本<br>
 2.安装[left4dhooks](https://forums.alliedmods.net/showthread.php?p=2684862)最新版本<br>
-3.(可选)需要投票的安装[nativevotes](https://github.com/sapphonie/sourcemod-nativevotes-updated)最新版本，不需要投票功能的可以忽略这一步<br>
+3.(可选)投票功能已自带，跳过此步，如不需要请自行移除<br>
 4.下载[插件(点我开始下载)](https://mirror.ghproxy.com/https://github.com/himenekocn/NekoSpecials-L4D2/archive/refs/heads/NS7-SM1.11+.zip)，将插件拖到服务器的left4dead2文件夹中覆盖<br>
 5.启动一次服务器检查是否全部加载
 6.修改插件对应cfg，CFG文件均为自动生成，请先执行第五步
@@ -77,8 +77,7 @@ HUD内容&服名内容的更改：服务器目录/left4dead2/addons/sourcemod/da
 【插件必备组件】BinHooks.ext 核心拓展<br>
 【插件必备组件】[dhooks](https://forums.alliedmods.net/showthread.php?p=2588686#post2588686) SM1.11-6854后自带，不需要安装<br>
 【插件必备组件】[left4dhooks](https://forums.alliedmods.net/showthread.php?p=2684862)(请手动安装最新版本)<br>
-【插件必备组件】[nativevotes](https://github.com/sapphonie/sourcemod-nativevotes-updated)(请手动安装最新版本，不需要的可以忽略这个)<br>
-【插件可选组件】[SourceScramble](https://github.com/nosoop/SMExt-SourceScramble/releases/tag/0.7.1)(插件版HUD需要)<br>
+【插件必备组件】[l4d2_nativevotes](https://github.com/fdxx/l4d2_nativevote)(仓库自带)<br>
 【多特本体模块】[NekoSpecials](https://himeneko.cn/nekospecials) (可选安装，默认安装)<br>
 【击杀统计模块】[NekoKillHud](https://himeneko.cn/nekospecials) (可选安装，默认安装)<br>
 【管理员快捷功能模块】[NekoAdminMenu](https://himeneko.cn/nekospecials) (可选安装，默认安装)<br>
@@ -147,6 +146,11 @@ HUD内容&服名内容的更改：服务器目录/left4dead2/addons/sourcemod/da
 优化了算法!<br>
 
 # 更新日志
+7.10NS 更新日志 2024/07/19 20:40<br>
+切换投票的支持插件为FDXX的<br>
+修复HUD不会移除问题，修复一个HUD显示错误问题<br>
+修复一些菜单选项更改失败问题<br>
+<br>
 7.01NS 更新日志 2024/07/17 17:00<br>
 添加了一些功能<br>
 拓展性能优化

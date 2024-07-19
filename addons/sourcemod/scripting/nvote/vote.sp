@@ -3,9 +3,9 @@ void StartVoteYesNo(int client)
 	if (!IsValidClient(client))
 		return;
 
-	if (!NativeVotes_IsNewVoteAllowed())
+	if (!L4D2NativeVote_IsAllowNewVote())
 	{
-		PrintToChat(client, "\x05%s \x04%d秒后才能开始投票", NEKOTAG, NativeVotes_CheckVoteDelay());
+		PrintToChat(client, "\x05%s \x04暂时不能开启新的投票", NEKOTAG);
 		return;
 	}
 
@@ -62,40 +62,45 @@ void StartVoteYesNo(int client)
 		Format(buffer, sizeof buffer, "刷特模式为");
 	}
 
-	NativeVote vote = new NativeVote(VoteYesNoH, NativeVotesType_Custom_YesNo);
-	vote.Initiator	= client;
-	vote.SetDetails("投票%s %s", buffer, sbuffer);
-	vote.DisplayVoteToAll(15);
+	L4D2NativeVote vote = L4D2NativeVote(VoteYesNoHandle);
+	vote.Initiator		= client;
+	vote.SetDisplayText("投票%s %s", buffer, sbuffer);
+
+	int iCount	   = 0;
+	int[] iClients = new int[MaxClients];
+
+	for (int i = 1; i <= MaxClients; i++)
+	{
+		if (IsValidClient(i) && !IsFakeClient(i))
+		{
+			if (GetClientTeam(i) == 2)
+			{
+				iClients[iCount++] = i;
+			}
+		}
+	}
+
+	if (!vote.DisplayVote(iClients, iCount, 15))
+		LogError("%s 无法开始投票!", NEKOTAG);
 }
 
-public int VoteYesNoH(NativeVote vote, MenuAction action, int param1, int param2)
+public void VoteYesNoHandle(L4D2NativeVote vote, VoteAction action, int param1, int param2)
 {
 	switch (action)
 	{
-		case MenuAction_End:
+		case VoteAction_Start:
 		{
-			vote.Close();
+			PrintToChatAll("\x05%s \x03%N \x04开始了一轮新的投票", param1);
 		}
 
-		case MenuAction_VoteCancel:
+		case VoteAction_PlayerVoted:
 		{
-			if (param1 == VoteCancel_NoVotes)
-			{
-				vote.DisplayFail(NativeVotesFail_NotEnoughVotes);
-			}
-			else
-			{
-				vote.DisplayFail(NativeVotesFail_Generic);
-			}
+			PrintToChatAll("\x05%s \x03%N \x04投了 \x03%s", param1, param2 == VOTE_YES ? "确定" : "否决");
 		}
 
-		case MenuAction_VoteEnd:
+		case VoteAction_End:
 		{
-			if (param1 == NATIVEVOTES_VOTE_NO)
-			{
-				vote.DisplayFail(NativeVotesFail_Loses);
-			}
-			else
+			if (vote.YesCount > vote.PlayerCount * 0.8)
 			{
 				char buffer[512], sbuffer[512], item[512];
 				int	 client = vote.Initiator;
@@ -173,14 +178,17 @@ public int VoteYesNoH(NativeVote vote, MenuAction action, int param1, int param2
 
 					PrintToChatAll("\x05%s \x04特感刷新方式更改为 \x03%s刷特模式", NEKOTAG, sbuffer);
 				}
-				vote.DisplayPass("投票%s %s 通过!!!", buffer, sbuffer);
+
+				vote.SetPass("投票%s %s 通过!!!", buffer, sbuffer);
 
 				cleanplayerchar(client);
 
 				CreateTimer(0.2, Timer_ReloadMenu, GetClientUserId(client));
 			}
+			else
+			{
+				vote.SetFail();
+			}
 		}
 	}
-
-	return 0;
 }

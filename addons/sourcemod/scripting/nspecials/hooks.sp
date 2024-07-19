@@ -53,6 +53,11 @@ public Action ChatListener(int client, const char[] command, int args)
 			{
 				NCvar[CSpecial_Num].SetInt(GetCmdArgInt(1));
 				PrintToChat(client, "\x05%s \x04更改刷特初始数量为 \x03%i ", NEKOTAG, GetCmdArgInt(1));
+				if(GetCmdArgInt(1) > 28 && NCvar[CSpecial_AddNum].IntValue >= 1 && NCvar[CSpecial_PlayerNum].IntValue >= 4)
+				{
+					PrintToChat(client, "\x05%s \x03注意: \x04当设置刷特数大于28时或达到32时，实际刷特数量计算公式为\x03 31位置-人类数量 \x04，这是由于求生的引擎过老限制所导致的，同时如果要达到20特以上，\x03你还需要安装多人破解拓展！", NEKOTAG);
+					PrintToChat(client, "\x05%s \x04多人破解拓展获取地址 \x03https://github.com/lakwsh/l4dtoolz", NEKOTAG);
+				}
 			}
 		}
 		else if (N_ClientItem[client].WaitingForTgadd)
@@ -284,7 +289,7 @@ public Action ChatListener(int client, const char[] command, int args)
 			}
 			else
 			{
-				NCvar[CSpecial_Spawn_MinDis].SetInt(GetCmdArgInt(1));
+				NCvar[CSpecial_Attack_PlayerNotInCombat_Time].SetInt(GetCmdArgInt(1));
 				PrintToChat(client, "\x05%s \x04摸鱼最大秒数设置为 \x03%d", NEKOTAG, GetCmdArgInt(1));
 			}
 		}
