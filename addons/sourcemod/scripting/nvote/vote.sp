@@ -90,12 +90,12 @@ public void VoteYesNoHandle(L4D2NativeVote vote, VoteAction action, int param1, 
 	{
 		case VoteAction_Start:
 		{
-			PrintToChatAll("\x05%s \x03%N \x04开始了一轮新的投票", param1);
+			PrintToChatAll("\x05%s \x03%N \x04开始了一轮新的投票", NEKOTAG, param1);
 		}
 
 		case VoteAction_PlayerVoted:
 		{
-			PrintToChatAll("\x05%s \x03%N \x04投了 \x03%s", param1, param2 == VOTE_YES ? "确定" : "否决");
+			PrintToChatAll("\x05%s \x03%N \x04投了 \x03%s", NEKOTAG, param1, param2 == VOTE_YES ? "确定" : "否决");
 		}
 
 		case VoteAction_End:
