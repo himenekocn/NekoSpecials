@@ -47,7 +47,7 @@ Specials plugin that can be customized in real time!<br>
 如果出现[BinHooks] Unable to connect to db<br>
 linux系统输入<br>
 (centos)yum install zlib.i686 <br>
-(ubuntu&debian)sudu apt-get install zlib.i686 或者 apt-get install zlib.i686<br>
+(ubuntu&debian)sudu apt-get install lib32z1-dev 或者 apt-get install lib32z1-dev<br>
 其它系统请查询相应库
 
 # 插件安装
