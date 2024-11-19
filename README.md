@@ -55,12 +55,10 @@ Centos
 ```
 yum install zlib.i686
 ```
-<br>
-Ubuntu / Debian
+Ubuntu Debian
 ```
 sudo apt-get install lib32z1-dev
 ```
-<br>
 其它系统请查询相应库
 
 # 插件安装
