@@ -47,3 +47,21 @@ void UpdateConfigFile(bool NeedReset)
 
 	AutoExecConfig_OnceExec();
 }
+
+void ResetHudSolt()
+{
+	if (HUDSlotIsUsed(HUD_SCORE_1))
+		RemoveHUD(HUD_SCORE_1);
+	if (HUDSlotIsUsed(HUD_FAR_RIGHT))
+		RemoveHUD(HUD_FAR_RIGHT);
+	if (HUDSlotIsUsed(HUD_FAR_LEFT))
+		RemoveHUD(HUD_FAR_LEFT);
+	if (HUDSlotIsUsed(HUD_FAR_RIGHT))
+		RemoveHUD(HUD_FAR_RIGHT);
+	if (HUDSlotIsUsed(HUD_LEFT_TOP))
+		RemoveHUD(HUD_LEFT_TOP);
+	if (HUDSlotIsUsed(HUD_RIGHT_TOP))
+		RemoveHUD(HUD_RIGHT_TOP);
+	if (HUDSlotIsUsed(HUD_MID_BOX))
+		RemoveHUD(HUD_MID_BOX);
+}
