@@ -62,7 +62,7 @@ sudo apt-get install lib32z1-dev
 其它系统请查询相应库
 
 # 插件安装
-1.安装Sourcemod插件平台到1.11+/1.12+最新版本<br>
+1.安装Sourcemod插件平台到1.12+最新版本<br>
 2.安装[left4dhooks](https://forums.alliedmods.net/showthread.php?p=2684862)最新版本<br>
 3.(可选)投票功能已自带，跳过此步，如不需要请自行移除<br>
 4.下载[插件(点我开始下载)](https://mirror.ghproxy.com/https://github.com/himenekocn/NekoSpecials-L4D2/archive/refs/heads/NS7-SM1.11+.zip)，将插件拖到服务器的left4dead2文件夹中覆盖<br>
