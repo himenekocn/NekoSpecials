@@ -58,7 +58,7 @@ yum install zlib.i686
 <br>
 Ubuntu / Debian
 ```
-sudu apt-get install lib32z1-dev
+sudo apt-get install lib32z1-dev
 ```
 <br>
 其它系统请查询相应库
