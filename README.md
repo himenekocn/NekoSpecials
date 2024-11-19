@@ -40,14 +40,27 @@ Specials plugin that can be customized in real time!<br>
 
 # 使用注意
 请看完本页说明，不看完的都是🐖<br>
-安装前请把6.0版本的删除再安装，否则无法加载插件<br>
+<hr>
+安装前请把6.0版本的删除干净再安装，否则无法加载插件<br>
+安装前请把6.0版本的删除干净再安装，否则无法加载插件<br>
+安装前请把6.0版本的删除干净再安装，否则无法加载插件<br>
+重要的事情说三遍
+<hr>
 如果你是直接下载仓库内最新版本使用，请记得在出现错误或不可用时提交日志，QQ:846490391
 
 # 安装前系统方面的准备
 如果出现[BinHooks] Unable to connect to db<br>
 linux系统输入<br>
-(centos)yum install zlib.i686 <br>
-(ubuntu&debian)sudu apt-get install lib32z1-dev 或者 apt-get install lib32z1-dev<br>
+Centos
+```
+yum install zlib.i686
+```
+<br>
+Ubuntu / Debian
+```
+sudu apt-get install lib32z1-dev
+```
+<br>
 其它系统请查询相应库
 
 # 插件安装
@@ -55,7 +68,7 @@ linux系统输入<br>
 2.安装[left4dhooks](https://forums.alliedmods.net/showthread.php?p=2684862)最新版本<br>
 3.(可选)投票功能已自带，跳过此步，如不需要请自行移除<br>
 4.下载[插件(点我开始下载)](https://mirror.ghproxy.com/https://github.com/himenekocn/NekoSpecials-L4D2/archive/refs/heads/NS7-SM1.11+.zip)，将插件拖到服务器的left4dead2文件夹中覆盖<br>
-5.启动一次服务器检查是否全部加载
+5.启动一次服务器检查是否全部加载<br>
 6.修改插件对应cfg，CFG文件均为自动生成，请先执行第五步
 
 # 插件CFG位置
@@ -146,6 +159,9 @@ HUD内容&服名内容的更改：服务器目录/left4dead2/addons/sourcemod/da
 优化了算法!<br>
 
 # 更新日志
+7.12NS 更新日志 2024/11/19 14:00<br>
+修复拓展带来的HUDBUG问题<br>
+<br>
 7.11NS 更新日志 2024/07/20 14:10<br>
 修复投票的一个小错误<br>
 <br>
